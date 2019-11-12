@@ -128,6 +128,8 @@ public class IjkVideoPlayerActivity extends Activity implements View.OnClickList
         findViewById(R.id.button_add_plugin).setOnClickListener(this);
         findViewById(R.id.button_remove_plugin).setOnClickListener(this);
         findViewById(R.id.button_add_hotspot_front).setOnClickListener(this);
+        findViewById(R.id.play).setOnClickListener(this);
+        findViewById(R.id.pause).setOnClickListener(this);
     }
 
 
@@ -264,6 +266,12 @@ public class IjkVideoPlayerActivity extends Activity implements View.OnClickList
                 hotspot.rotateToCamera();
                 plugins.add(hotspot);
                 mVRLibrary.addPlugin(hotspot);
+                break;
+            case R.id.play:
+                mMediaPlayerWrapper.start();
+                break;
+            case R.id.pause:
+                mMediaPlayerWrapper.pause();
                 break;
         }
     }

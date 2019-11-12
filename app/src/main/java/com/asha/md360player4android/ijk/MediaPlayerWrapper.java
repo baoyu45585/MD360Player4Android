@@ -241,7 +241,7 @@ public class MediaPlayerWrapper implements IMediaPlayer.OnPreparedListener, IMed
         }
     }
 
-    private void start() {
+    public void start() {
         if (mMediaPlayer == null) return;
         if (mStatus == STATUS_PREPARED || mStatus == STATUS_PAUSED) {
             mMediaPlayer.start();
