@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MD360PlayerActivity">
+
+   <FrameLayout
+       android:orientation="horizontal"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+      <com.google.android.apps.muzei.render.GLTextureView
+          android:id="@+id/gl_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" />
+
+   </FrameLayout>
+
+   <ScrollView
+       android:layout_width="160dp"
+       android:paddingBottom="20dp"
+       android:layout_height="match_parent">
+      <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+         <Button
+             android:id="@+id/normal"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:background="#30000000"
+             android:textColor="@android:color/white"
+             android:text="普通模式"/>
+
+         <Button
+             android:id="@+id/glass"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="分屏模式"/>
+
+         <Button
+             android:id="@+id/motion"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="陀螺仪"/>
+
+         <Button
+             android:id="@+id/touch"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="触摸"/>
+
+         <Button
+             android:id="@+id/motion_touch"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="触与陀"/>
+
+         <Button
+             android:id="@+id/cardboard"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="cardboard陀"/>
+
+         <Button
+             android:id="@+id/cardboard_touch"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="cardboard与触"/>
+
+         <Button
+             android:id="@+id/sphere"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="全景"/>
+
+         <Button
+             android:id="@+id/dome_180"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="下部分3D180度 "/>
+         <Button
+             android:id="@+id/dome_230"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="下部分3D230度 "/>
+
+         <Button
+             android:id="@+id/dome_upper_180"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="上部分3D180度 "/>
+
+         <Button
+             android:id="@+id/dome_upper_230"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="上部分3D230度 "/>
+         <Button
+             android:id="@+id/sphere_horizontal"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="立体平面 - 左右 "/>
+
+         <Button
+             android:id="@+id/sphere_vertical"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="立体平面 - 上下 "/>
+
+         <Button
+             android:id="@+id/plane"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="平面适配"/>
+
+         <Button
+             android:id="@+id/plane_crop"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="平面裁剪"/>
+
+         <Button
+             android:id="@+id/plane_full"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="平面满屏"/>
+
+
+         <Button
+             android:id="@+id/multi_fish_horizontal"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="multi_fish_horizontal"/>
+
+         <Button
+             android:id="@+id/multi_fish_vertical"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="multi_fish_vertical"/>
+         <Button
+             android:id="@+id/fish_eye_radius_vertical"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="fish_eye_radius_vertical"/>
+
+
+         <Button
+             android:id="@+id/anti_enable"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="桶形畸变模"/>
+
+         <Button
+             android:id="@+id/anti_disable"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="无畸变"/>
+
+
+         <Button
+             android:id="@+id/camera_little_planet"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="小星球模式"/>
+
+         <Button
+             android:id="@+id/camera_to_normal"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:padding="2dp"
+             android:textColor="@android:color/white"
+             android:background="#30000000"
+             android:text="无星球模式"/>
+
+         <Button
+             android:id="@+id/button_add_plugin"
+             android:textSize="13sp"
+             android:textColor="@android:color/white"
+             android:text="addPlugin"
+             android:layout_marginTop="8dp"
+             android:paddingLeft="8dp"
+             android:paddingRight="8dp"
+             android:includeFontPadding="false"
+             android:background="@drawable/selector_button_background"
+             android:layout_width="wrap_content"
+             android:layout_height="42dp" />
+
+         <Button
+             android:id="@+id/button_remove_plugin"
+             android:textSize="13sp"
+             android:textColor="@android:color/white"
+             android:layout_marginTop="8dp"
+             android:text="removePlugin"
+             android:paddingLeft="8dp"
+             android:paddingRight="8dp"
+             android:includeFontPadding="false"
+             android:background="@drawable/selector_button_background"
+             android:layout_width="wrap_content"
+             android:layout_height="42dp" />
+
+         <Button
+             android:id="@+id/button_add_hotspot_front"
+             android:textSize="13sp"
+             android:textColor="@android:color/white"
+             android:text="AddHotspotFront"
+             android:layout_marginTop="8dp"
+             android:paddingLeft="8dp"
+             android:paddingRight="8dp"
+             android:includeFontPadding="false"
+             android:background="@drawable/selector_button_background"
+             android:layout_width="wrap_content"
+             android:layout_height="42dp" />
+
+      </LinearLayout>
+   </ScrollView>
+
+   <ProgressBar
+       android:layout_centerInParent="true"
+       android:id="@+id/progress"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+
+</RelativeLayout>
