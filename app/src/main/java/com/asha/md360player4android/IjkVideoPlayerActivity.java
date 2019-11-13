@@ -147,7 +147,7 @@ public class IjkVideoPlayerActivity extends Activity implements View.OnClickList
                 mVRLibrary.switchInteractiveMode(getApplicationContext(), MDVRLibrary.INTERACTIVE_MODE_MOTION);
                 break;
             case R.id.touch:
-                mVRLibrary.switchDisplayMode(getApplicationContext(), MDVRLibrary.INTERACTIVE_MODE_TOUCH);
+                mVRLibrary.switchInteractiveMode(getApplicationContext(), MDVRLibrary.INTERACTIVE_MODE_TOUCH);
                 break;
             case R.id.motion_touch:
                 mVRLibrary.switchInteractiveMode(getApplicationContext(), MDVRLibrary.INTERACTIVE_MODE_MOTION_WITH_TOUCH);
