@@ -261,6 +261,7 @@ public class MediaPlayerWrapper implements IMediaPlayer.OnPreparedListener, IMed
             mHudViewHolder.updateLoadCost(mPrepareEndTime - mPrepareStartTime);
         }
         mStatus = STATUS_PREPARED;
+        Log.e("===========","==========onPrepared======");
         start();
         if (mPreparedListener != null) mPreparedListener.onPrepared(mp);
     }
