@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.util.SimpleArrayMap;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.Surface;
 import android.view.View;
@@ -88,9 +89,9 @@ public class IjkVideoPlayerActivity extends Activity implements View.OnClickList
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_md_using_surface_view_me);
         initView();
         initData();
@@ -328,6 +329,7 @@ public class IjkVideoPlayerActivity extends Activity implements View.OnClickList
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+        Log.e("=============","===========  mVRLibrary.onOrientationChanged(this);========");
         mVRLibrary.onOrientationChanged(this);
     }
 
@@ -347,6 +349,7 @@ public class IjkVideoPlayerActivity extends Activity implements View.OnClickList
                 .asVideo(new MDVRLibrary.IOnSurfaceReadyCallback() {
                     @Override
                     public void onSurfaceReady(Surface surface) {
+                        Log.e("===========","==========onSurfaceReady======");
                         mMediaPlayerWrapper.setSurface(surface);
                     }
                 })

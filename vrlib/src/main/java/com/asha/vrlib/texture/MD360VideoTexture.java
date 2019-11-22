@@ -66,10 +66,10 @@ public class MD360VideoTexture extends MD360Texture {
             //It's a clue class for rendering an android view to gl level
             mSurfaceTexture = new SurfaceTexture(glSurfaceTextureId);
             // mSurfaceTexture.setDefaultBufferSize(getWidth(), getHeight());
-            mSurface = new Surface(mSurfaceTexture);
-            if (mOnSurfaceReadyListener != null)
-                mOnSurfaceReadyListener.onSurfaceReady(mSurface);
         }
+        mSurface = new Surface(mSurfaceTexture);
+        if (mOnSurfaceReadyListener != null)
+            mOnSurfaceReadyListener.onSurfaceReady(mSurface);
     }
 
     @Override
