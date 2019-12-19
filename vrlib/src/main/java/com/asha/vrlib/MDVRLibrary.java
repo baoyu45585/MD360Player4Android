@@ -501,6 +501,12 @@ public class MDVRLibrary {
         }
     }
 
+    public void releaseLastSurface(){
+        if (mTexture != null){
+            mTexture.releaseSurface();
+        }
+    }
+
     public interface IOnSurfaceReadyCallback {
         void onSurfaceReady(Surface surface);
     }

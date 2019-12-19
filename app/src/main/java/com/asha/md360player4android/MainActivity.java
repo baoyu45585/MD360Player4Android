@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
                     new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
         }
         try {
-            String url= "/storage/emulated/0/DCIM/vr_11.mp4";
+            String url= "/storage/emulated/0/DCIM/vr_4k_1.mp4";
             uri = Uri.parse(url);
         }catch (Exception e){
             e.printStackTrace();

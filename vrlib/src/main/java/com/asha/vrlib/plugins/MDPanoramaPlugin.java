@@ -77,7 +77,9 @@ public class MDPanoramaPlugin extends MDAbsPlugin {
         mProgram.use();
         glCheck("MDPanoramaPlugin mProgram use");
 
-        mTexture.texture(mProgram);
+        if (mTexture != null){
+            mTexture.texture(mProgram);
+        }
 
         object3D.uploadVerticesBufferIfNeed(mProgram, index);
 

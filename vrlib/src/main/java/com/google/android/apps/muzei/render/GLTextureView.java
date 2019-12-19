@@ -459,29 +459,29 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if (LOG_ATTACH_DETACH) {
-            Log.d(TAG, "onAttachedToWindow reattach =" + mDetached);
-        }
-        if (mDetached && (mRenderer != null)) {
-            int renderMode = RENDERMODE_CONTINUOUSLY;
-            int w = 0, h = 0;
-
-            if (mGLThread != null) {
-                renderMode = mGLThread.getRenderMode();
-                w = mGLThread.mWidth;
-                h = mGLThread.mHeight;
-            }
-            mGLThread = new GLThread(mThisWeakRef);
-            if (renderMode != RENDERMODE_CONTINUOUSLY) {
-                mGLThread.setRenderMode(renderMode);
-            }
-            if (w != 0 && h != 0) {
-                mGLThread.mWidth = w;
-                mGLThread.mHeight = h;
-            }
-            mGLThread.start();
-        }
-        mDetached = false;
+//        if (LOG_ATTACH_DETACH) {
+//            Log.d(TAG, "onAttachedToWindow reattach =" + mDetached);
+//        }
+//        if (mDetached && (mRenderer != null)) {
+//            int renderMode = RENDERMODE_CONTINUOUSLY;
+//            int w = 0, h = 0;
+//
+//            if (mGLThread != null) {
+//                renderMode = mGLThread.getRenderMode();
+//                w = mGLThread.mWidth;
+//                h = mGLThread.mHeight;
+//            }
+//            mGLThread = new GLThread(mThisWeakRef);
+//            if (renderMode != RENDERMODE_CONTINUOUSLY) {
+//                mGLThread.setRenderMode(renderMode);
+//            }
+//            if (w != 0 && h != 0) {
+//                mGLThread.mWidth = w;
+//                mGLThread.mHeight = h;
+//            }
+//            mGLThread.start();
+//        }
+//        mDetached = false;
     }
 
     /**
@@ -491,13 +491,13 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
      */
     @Override
     protected void onDetachedFromWindow() {
-        if (LOG_ATTACH_DETACH) {
-            Log.d(TAG, "onDetachedFromWindow:" + mGLThread);
-        }
-        if (mGLThread != null) {
-            mGLThread.requestExitAndWait();
-        }
-        mDetached = true;
+//        if (LOG_ATTACH_DETACH) {
+//            Log.d(TAG, "onDetachedFromWindow:" + mGLThread);
+//        }
+//        if (mGLThread != null) {
+//            mGLThread.requestExitAndWait();
+//        }
+//        mDetached = true;
         super.onDetachedFromWindow();
     }
 

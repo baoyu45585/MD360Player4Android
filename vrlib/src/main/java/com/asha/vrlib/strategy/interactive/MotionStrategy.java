@@ -126,7 +126,9 @@ public class MotionStrategy extends AbsInteractiveStrategy implements SensorEven
             switch (type){
                 case Sensor.TYPE_ROTATION_VECTOR:
                     // post
-                    VRUtil.sensorRotationVector2Matrix(event, windowManager.getDefaultDisplay().getRotation(), mSensorMatrix);
+                    if (windowManager != null){
+                        VRUtil.sensorRotationVector2Matrix(event, windowManager.getDefaultDisplay().getRotation(), mSensorMatrix);
+                    }
 
                     // mTmpMatrix will be used in multi thread.
                     synchronized (mMatrixLock){
