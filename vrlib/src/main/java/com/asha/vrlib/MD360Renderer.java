@@ -3,6 +3,7 @@ package com.asha.vrlib;
 import android.content.Context;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
+import android.util.Log;
 
 import com.asha.vrlib.common.Fps;
 import com.asha.vrlib.common.MDGLHandler;
@@ -80,7 +81,7 @@ public class MD360Renderer implements GLSurfaceView.Renderer {
 		// 切换策略
 		// 热点拾取
 		mGLHandler.dealMessage();
-
+		Log.e("=================","=========onDrawFrame==========");
 		GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT | GLES20.GL_DEPTH_BUFFER_BIT);
 		glCheck("MD360Renderer onDrawFrame begin. ");
 

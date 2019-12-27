@@ -115,6 +115,23 @@ public class MDVRLibrary {
 
         mTexture = builder.texture;
 
+//        if (builder.interactiveMode== MDVRLibrary.INTERACTIVE_MODE_MOTION){
+//            MDVRLibrary.this.setMode(1);
+//            if (mTexture!=null||mTexture instanceof MD360VideoTexture){
+//                GLTextureView textureView= ((MD360VideoTexture)mTexture).getGlTextureView();
+//                textureView.setRenderMode(1);
+//            }
+//        }else
+        if (builder.projectionMode== MDVRLibrary.PROJECTION_MODE_PLANE_FULL||
+                builder.projectionMode== MDVRLibrary.PROJECTION_MODE_PLANE_CROP||
+                builder.projectionMode== MDVRLibrary.PROJECTION_MODE_PLANE_FIT){
+
+            if (mTexture!=null||mTexture instanceof MD360VideoTexture){
+                setMode(0);
+                GLTextureView textureView= ((MD360VideoTexture)mTexture).getGlTextureView();
+                textureView.setRenderMode(0);
+            }
+        }
         mTouchHelper = new MDTouchHelper(builder.context);
 
         // init touch helper
@@ -280,12 +297,31 @@ public class MDVRLibrary {
      * {@link #INTERACTIVE_MODE_MOTION_WITH_TOUCH}
      */
     public void switchInteractiveMode(final Context context, final int mode){
+        if (mode== MDVRLibrary.INTERACTIVE_MODE_MOTION){
+            if (mTexture!=null||mTexture instanceof MD360VideoTexture){
+                GLTextureView textureView= ((MD360VideoTexture)mTexture).getGlTextureView();
+                setMode(1);
+                textureView.setRenderMode(1);
+            }
+        }
         mInteractiveModeManager.switchMode(context, mode);
     }
 
     public void switchDisplayMode(final Context context){
         mDisplayModeManager.switchMode(context);
     }
+
+    /**
+     * 设置是否手动请求
+     * 默认自动请求
+     * @param mode
+     */
+    public void setMode(int mode){
+        if (mTexture!=null||mTexture instanceof MD360VideoTexture){
+            ((MD360VideoTexture)mTexture).setMode(mode);
+        }
+    }
+
 
     /**
      * Switch Display Mode
@@ -311,6 +347,15 @@ public class MDVRLibrary {
      * and so on.
      */
     public void switchProjectionMode(final Context context, final int mode) {
+        if (mode== MDVRLibrary.PROJECTION_MODE_PLANE_FULL
+                ||mode== MDVRLibrary.PROJECTION_MODE_PLANE_CROP
+                ||mode== MDVRLibrary.PROJECTION_MODE_PLANE_FIT){
+            if (mTexture!=null||mTexture instanceof MD360VideoTexture){
+                GLTextureView textureView= ((MD360VideoTexture)mTexture).getGlTextureView();
+                setMode(0);
+                textureView.setRenderMode(0);
+            }
+        }
         mProjectionModeManager.switchMode(context, mode);
     }
 
@@ -815,10 +860,16 @@ public class MDVRLibrary {
         }
 
         public MDVRLibrary build(GLSurfaceView glSurfaceView){
+            if (texture instanceof MD360VideoTexture){
+                ((MD360VideoTexture)texture).setGlSurfaceView(glSurfaceView);
+            }
             return build(MDGLScreenWrapper.wrap(glSurfaceView));
         }
 
         public MDVRLibrary build(GLTextureView glTextureView){
+            if (texture instanceof MD360VideoTexture){
+                ((MD360VideoTexture)texture).setGlTextureView(glTextureView);
+            }
             return build(MDGLScreenWrapper.wrap(glTextureView));
         }
 

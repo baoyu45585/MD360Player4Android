@@ -37,6 +37,7 @@ import com.asha.vrlib.plugins.hotspot.IMDHotspot;
 import com.asha.vrlib.plugins.hotspot.MDAbsHotspot;
 import com.asha.vrlib.plugins.hotspot.MDSimpleHotspot;
 import com.asha.vrlib.texture.MD360BitmapTexture;
+import com.google.android.apps.muzei.render.GLTextureView;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -84,7 +85,7 @@ public class IjkVideoPlayerActivity extends Activity implements View.OnClickList
 
     private MDVRLibrary mVRLibrary;
     ProgressBar progress;
-    View view;
+    GLTextureView view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -99,7 +100,8 @@ public class IjkVideoPlayerActivity extends Activity implements View.OnClickList
 
     public void initView() {
         progress = (ProgressBar) findViewById(R.id.progress);
-        view = findViewById(R.id.gl_view);
+        view = (GLTextureView) findViewById(R.id.gl_view);
+
 
 
         findViewById(R.id.normal).setOnClickListener(this);
@@ -145,6 +147,7 @@ public class IjkVideoPlayerActivity extends Activity implements View.OnClickList
                 mVRLibrary.switchDisplayMode(getApplicationContext(), MDVRLibrary.DISPLAY_MODE_GLASS);
                 break;
             case R.id.motion:
+                mVRLibrary.switchProjectionMode(getApplicationContext(), MDVRLibrary.PROJECTION_MODE_SPHERE);
                 mVRLibrary.switchInteractiveMode(getApplicationContext(), MDVRLibrary.INTERACTIVE_MODE_MOTION);
                 break;
             case R.id.touch:
@@ -302,6 +305,7 @@ public class IjkVideoPlayerActivity extends Activity implements View.OnClickList
             mMediaPlayerWrapper.openRemoteFile(uri.toString());
             mMediaPlayerWrapper.prepare();
         }
+
     }
 
 
@@ -372,6 +376,7 @@ public class IjkVideoPlayerActivity extends Activity implements View.OnClickList
                 .projectionFactory(new CustomProjectionFactory())
                 .barrelDistortionConfig(new BarrelDistortionConfig().setDefaultEnabled(false).setScale(0.95f))
                 .build(view);
+
     }
 
 

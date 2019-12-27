@@ -410,7 +410,10 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
 
     @Override
     public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
-        requestRender();
+        if (mGLThread.mRenderMode==RENDERMODE_CONTINUOUSLY){
+            requestRender();
+        }
+
     }
 
     /**

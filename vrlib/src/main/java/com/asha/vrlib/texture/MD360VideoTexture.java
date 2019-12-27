@@ -3,10 +3,13 @@ package com.asha.vrlib.texture;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES11Ext;
 import android.opengl.GLES20;
+import android.opengl.GLSurfaceView;
+import android.util.Log;
 import android.view.Surface;
 
 import com.asha.vrlib.MD360Program;
 import com.asha.vrlib.MDVRLibrary;
+import com.google.android.apps.muzei.render.GLTextureView;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -24,8 +27,32 @@ public class MD360VideoTexture extends MD360Texture {
     private float[] mTransformMatrix = new float[16];
     private static final int[] sUseTransform = new int[]{1};
 
+    private int mode=GLTextureView.RENDERMODE_CONTINUOUSLY;
+
+    GLSurfaceView glSurfaceView;
+    GLTextureView glTextureView;
     public MD360VideoTexture(MDVRLibrary.IOnSurfaceReadyCallback onSurfaceReadyListener) {
         mOnSurfaceReadyListener = onSurfaceReadyListener;
+    }
+
+    public void setGlTextureView(GLTextureView glTextureView) {
+        this.glTextureView = glTextureView;
+    }
+
+    public void setMode(int mode) {
+        this.mode = mode;
+    }
+
+    public void setGlSurfaceView(GLSurfaceView glSurfaceView) {
+        this.glSurfaceView = glSurfaceView;
+    }
+
+    public GLSurfaceView getGlSurfaceView() {
+        return glSurfaceView;
+    }
+
+    public GLTextureView getGlTextureView() {
+        return glTextureView;
     }
 
     @Override
@@ -68,6 +95,22 @@ public class MD360VideoTexture extends MD360Texture {
         //It's a clue class for rendering an android view to gl level
         mSurfaceTexture = new SurfaceTexture(glSurfaceTextureId);
         // mSurfaceTexture.setDefaultBufferSize(getWidth(), getHeight());
+
+        mSurfaceTexture.setOnFrameAvailableListener(new SurfaceTexture.OnFrameAvailableListener() {
+            @Override
+            public void onFrameAvailable(SurfaceTexture surfaceTexture) {
+
+                if (mode!=GLTextureView.RENDERMODE_CONTINUOUSLY){
+                    Log.e("=================","=========surfaceTexture==========");
+                    if (glTextureView!=null){
+                        glTextureView.requestRender();
+                    }else if (glSurfaceView!=null){
+                        glSurfaceView.requestRender();
+                    }
+                }
+
+            }
+        });
         mSurface = new Surface(mSurfaceTexture);
         if (mOnSurfaceReadyListener != null){
             mOnSurfaceReadyListener.onSurfaceReady(mSurface);
